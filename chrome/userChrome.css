@@ -1,0 +1,166 @@
+/*========================================================================================================*
+  Cascade, Mouse Edition
+  Description: Firefox theme based on Cascade by Andreas Grafen, customized for one-line layout.
+  Authors: Andreas Grafen, Clément Rambaud
+  Repository: https://github.com/andreasgrafen/cascade
+*========================================================================================================*/
+
+/*-------------------- CONFIG --------------------*/
+:root {
+    /* Dark Theme Colors */
+    --window-colour:               #1f2122;
+    --secondary-colour:            #141616;
+    --inverted-colour:             #FAFAFC;
+
+    /* Container Tab Colours */
+    --uc-identity-color-blue:      #7ED6DF;
+    --uc-identity-color-turquoise: #55E6C1;
+    --uc-identity-color-green:     #B8E994;
+    --uc-identity-color-yellow:    #F7D794;
+    --uc-identity-color-orange:    #F19066;
+    --uc-identity-color-red:       #FC5C65;
+    --uc-identity-color-pink:      #F78FB3;
+    --uc-identity-color-purple:    #786FA6;
+
+    /* URL bar colour in suggestions */
+    --urlbar-popup-url-color: var(--uc-identity-color-purple) !important;
+
+    /* Visuals */
+    --uc-border-radius: 0;
+    --uc-urlbar-width: clamp(250px, 50vw, 600px);
+    --uc-active-tab-width:   clamp(50px, 18vw, 220px);
+    --uc-inactive-tab-width: clamp(50px, 15vw, 200px);
+    --show-tab-close-button: none;
+    --show-tab-close-button-hover: -moz-inline-box;
+    --container-tabs-indicator-margin: 0px;
+}
+
+/*-------------------- BUTTONS --------------------*/
+
+/* Show main toolbar buttons */
+#back-button{ display: -moz-inline-box !important; }
+#forward-button{ display: none !important; }
+#stop-button{ display: none !important; }
+#reload-button{ display: none !important; }
+
+/* Hide the bookmark star icon, but allow creation via Ctrl+D / menu */
+#star-button { display: none !important; }
+#urlbar:hover #star-button { display: -moz-inline-box !important; }
+
+/* Hamburger menu */
+#PanelUI-button { display: -moz-inline-box !important; }
+
+/* Hide secondary buttons */
+#reader-mode-button{ display: none !important; }
+#tracking-protection-icon-container { display: none !important; }
+
+/* Keep essential elements for bookmark popup functional */
+#identity-permission-box { display: -moz-inline-box !important; }
+#pageActionButton { display: -moz-inline-box !important; }
+#page-action-buttons { display: -moz-inline-box !important; }
+
+/*-------------------- LAYOUT & TOOLBAR --------------------*/
+:root {
+    --uc-theme-colour: var(--window-colour);
+    --uc-hover-colour: var(--secondary-colour);
+    --uc-inverted-colour: var(--inverted-colour);
+
+    --button-bgcolor: var(--uc-theme-colour) !important;
+    --button-hover-bgcolor: var(--uc-hover-colour) !important;
+    --button-active-bgcolor: var(--uc-hover-colour) !important;
+
+    --toolbar-bgcolor: var(--uc-theme-colour) !important;
+    --toolbarbutton-hover-background: var(--uc-hover-colour) !important;
+    --toolbarbutton-active-background: var(--uc-hover-colour) !important;
+    --toolbarbutton-border-radius: var(--uc-border-radius) !important;
+
+    --lwt-toolbar-field-focus: var(--uc-theme-colour) !important;
+    --toolbarbutton-icon-fill: var(--uc-inverted-colour) !important;
+    --toolbar-field-focus-background-color: var(--secondary-colour) !important;
+    --toolbar-field-color: var(--uc-inverted-colour) !important;
+
+    --tabs-border-color: var(--uc-theme-colour) !important;
+    --tab-border-radius: var(--uc-border-radius) !important;
+    --lwt-text-color: var(--uc-inverted-colour) !important;
+    --lwt-tab-text: var(--uc-inverted-colour) !important;
+
+    --lwt-sidebar-background-color: var(--uc-hover-colour) !important;
+    --lwt-sidebar-text-color: var(--uc-inverted-colour) !important;
+
+    --arrowpanel-border-color: var(--uc-theme-colour) !important;
+    --arrowpanel-border-radius: var(--uc-border-radius) !important;
+    --arrowpanel-background: var(--uc-theme-colour) !important;
+    --arrowpanel-color: var(--inverted-colour) !important;
+
+    --autocomplete-popup-highlight-background: var(--uc-inverted-colour) !important;
+    --autocomplete-popup-highlight-color: var(--uc-inverted-colour) !important;
+    --autocomplete-popup-hover-background: var(--uc-inverted-colour) !important;
+
+    --tab-block-margin: 2px !important;
+}
+
+/* General window styling */
+window,
+#main-window,
+#toolbar-menubar,
+#TabsToolbar,
+#PersonalToolbar,
+#navigator-toolbox,
+#sidebar-box,
+#nav-bar {
+    -moz-appearance: none !important;
+    appearance: none;
+    border: none !important;
+    box-shadow: none !important;
+    background: var(--uc-theme-colour) !important;
+}
+
+
+
+/* Grayscale inactive toolbar icons */
+#PersonalToolbar toolbarbuttonbackgrou:not(:hover),
+#bookmarks-toolbar-button:not(:hover) { filter: grayscale(1) !important; }
+
+/* Show Window Control Button */
+.titlebar-buttonbox-container { display: -moz-inline-box !important; }
+
+/* Remove tab padding and shadows */
+.titlebar-spacer { display: none !important; }
+.tabbrowser-tab > .tab-stack > .tab-background { box-shadow: none !important; background: var(--uc-theme-colour) !important; }
+.tabbrowser-tab[selected] > .tab-stack > .tab-background { background: var(--uc-hover-colour) !important; border: 2px solid white !important; }
+
+/* Tab close button settings */
+.tabbrowser-tab:not([pinned]) .tab-close-button { display: var(--show-tab-close-button) !important; }
+.tabbrowser-tab:not([pinned]):hover .tab-close-button { display: var(--show-tab-close-button-hover) !important; }
+
+/* Adaptive tab width */
+.tabbrowser-tab[selected][fadein]:not([pinned]) { max-width: var(--uc-active-tab-width) !important; }
+.tabbrowser-tab[fadein]:not([selected]):not([pinned]) { max-width: var(--uc-inactive-tab-width) !important; }
+
+/* Container Tabs */
+.identity-color-blue      { --identity-tab-color: var(--uc-identity-color-blue) !important; --identity-icon-color: var(--uc-identity-color-blue) !important; }
+.identity-color-turquoise { --identity-tab-color: var(--uc-identity-color-turquoise) !important; --identity-icon-color: var(--uc-identity-color-turquoise) !important; }
+.identity-color-green     { --identity-tab-color: var(--uc-identity-color-green) !important; --identity-icon-color: var(--uc-identity-color-green) !important; }
+.identity-color-yellow    { --identity-tab-color: var(--uc-identity-color-yellow) !important; --identity-icon-color: var(--uc-identity-color-yellow) !important; }
+.identity-color-orange    { --identity-tab-color: var(--uc-identity-color-orange) !important; --identity-icon-color: var(--uc-identity-color-orange) !important; }
+.identity-color-red       { --identity-tab-color: var(--uc-identity-color-red) !important; --identity-icon-color: var(--uc-identity-color-red) !important; }
+.identity-color-pink      { --identity-tab-color: var(--uc-identity-color-pink) !important; --identity-icon-color: var(--uc-identity-color-pink) !important; }
+.identity-color-purple    { --identity-tab-color: var(--uc-identity-color-purple) !important; --identity-icon-color: var(--uc-identity-color-purple) !important; }
+
+/* URL bar popups hover */
+.urlbarView-row:hover > .urlbarView-row-inner,
+.urlbarView-row[selected] > .urlbarView-row-inner { background: var(--uc-hover-colour) !important; }
+
+/* Make nav-bar background visible to fix bookmark popup */
+#nav-bar { background: var(--uc-theme-colour) !important; border: none !important; box-shadow: none !important; }
+
+/* Transition to one-line layout on wide screens */
+@media (min-width: 1000px) {
+    #TabsToolbar { margin-left: var(--uc-urlbar-width) !important; }
+    #nav-bar { margin: calc((var(--urlbar-min-height) * -1) - 8px) calc(100vw - var(--uc-urlbar-width)) 0 0 !important; }
+}
+
+* {
+    color: white !important;
+}
+

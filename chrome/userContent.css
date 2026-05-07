@@ -1,0 +1,23 @@
+html { filter: grayscale(1) sepia(20%) brightness(90%) contrast(80%) !important; 
+img,
+svg,
+video,
+canvas {
+  filter: grayscale(1) sepia(0.6) brightness(0.7) contrast(2) invert(1) blur(0.6px) !important;
+}}
+[style*="background-image"] {
+  filter: grayscale(1) sepia(0.6) brightness(0.7) contrast(2) invert(1) blur(0.6px) !important;
+}
+
+a[href$=".png"],
+a[href$=".svg"],
+a[href$=".webp"] {
+  filter: grayscale(1) sepia(0.6) brightness(0.7) contrast(2) invert(1) blur(0.6px) !important;
+}
+
+img[src$=".png"],
+img[src$=".svg"],
+img[src$=".webp"] {
+  filter: grayscale(1) sepia(0.6) brightness(0.7) contrast(2) invert(1) blur(0.6px) !important;
+}
+
